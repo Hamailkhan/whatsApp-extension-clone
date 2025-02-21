@@ -1,0 +1,9 @@
+.blur_messages_class_SMIT {
+    filter: blur(5px) !important;
+    transition: filter 0.3s ease-in-out !important;
+}
+
+/* Remove blur effect when hovered */
+.blur_messages_class_SMIT:hover {
+    filter: blur(0px) !important;
+}

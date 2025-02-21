@@ -1,0 +1,490 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0.95rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f0f2f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0005;
+  border: 5px solid transparent;
+  border-radius: 9px;
+  background-clip: content-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+  padding: 20px;
+  max-width: 500px;
+}
+
+/* Header Styles */
+.header,
+.groupHeader,
+.proHeader {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.header ul,
+.groupHeader ul,
+.proHeader ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 0 10px;
+}
+
+.header li,
+.groupHeader li,
+.proHeader li {
+  padding: 6px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 500;
+  background-color: #e9f7ef;
+  color: #25d366;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.header li:hover,
+.groupHeader li:hover,
+.proHeader li:hover {
+  background-color: #ffffffb2;
+  color: #25d366;
+}
+
+.header li.active,
+.groupHeader li.active,
+.proHeader li.active {
+  background-color: #25d366;
+  color: white;
+}
+
+/* Container Styles */
+.container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Form Elements */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+textarea,
+input[type="text"],
+input[type="file"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+select:focus {
+  border-color: #25d366;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.1);
+}
+
+textarea {
+  resize: vertical;
+  min-height: min-content;
+}
+
+.custom-file-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 12px;
+  width: 100%;
+}
+.custom-file-btn:hover {
+  background: #1ea952;
+  transform: translateY(-1px);
+}
+input[type="file"] {
+  display: none;
+}
+#upload-image h2 {
+  margin-bottom: 20px;
+}
+.image-preview {
+  margin-top: 12px;
+  text-align: center;
+  display: none;
+}
+.image-preview img {
+  max-width: 90%;
+  max-height: 250px;
+  border: 2px solid #25d366;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+/* Button Styles */
+#sendButton,
+#sendImageButton,
+#csvFile,
+#createGroup {
+  background-color: #25d366;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 16px;
+}
+
+#sendButton:hover,
+#sendImageButton:hover,
+#csvFile:hover,
+#createGroup:hover {
+  background-color: #1ea952;
+  transform: translateY(-1px);
+}
+
+/* Progress Bar */
+.progress-container {
+  margin: 20px 0;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress {
+  width: 0%;
+  height: 100%;
+  background-color: #25d366;
+  transition: width 0.3s ease;
+}
+
+.status {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+#pricingContainer {
+  display: none;
+}
+#pricingContainer h2 {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #25d366;
+}
+.pricing-plans {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 8px; */
+  flex-wrap: wrap;
+}
+.pricing-plan {
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 2px 6px #0005;
+  transition: transform 0.2s ease;
+  /* flex: 1; */
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.pricing-plan:hover {
+  transform: translateY(-3px);
+}
+.pricing-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+.pricing-price {
+  font-size: 20px;
+  color: #25d366;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 16px 0;
+  text-align: left;
+  font-size: 12px; /* Smaller font size */
+}
+.plan-features li {
+  margin-bottom: 4px;
+  padding-left: 16px;
+  position: relative;
+  color: #000;
+}
+.plan-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #25d366;
+}
+
+.select-plan-btn {
+  padding: 8px;
+  background: #25d366;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.select-plan-btn:hover {
+  background: #1ea952;
+  transform: translateY(-1px);
+}
+
+/* Activation Section */
+.activation-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.activation-section input[type="text"] {
+  margin-bottom: 0px !important;
+}
+
+.activation-section button {
+  padding: 8px;
+  background: #25d366;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  width: 100%;
+}
+
+/* Settings Section */
+.toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* Switch Toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #25d366;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* History Section */
+.history-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.history-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.history-item {
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 4px solid #25d366;
+}
+
+/* Error Messages */
+.error {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 4px;
+  padding: 8px;
+  background-color: #fdf1f1;
+  border-radius: 4px;
+  display: none;
+}
+
+/* Upload Area Styles */
+#upload-csv,
+#upload-image {
+  text-align: center;
+}
+
+#uploadExcel,
+#imageInput {
+  border: 2px dashed #25d366;
+  padding: 40px;
+  border-radius: 12px;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#uploadExcel:hover,
+#imageInput:hover {
+  background: #e9f7ef;
+}
+
+/* Group Management */
+#group-container {
+  background: #ffffff;
+  padding: 24px;
+}
+
+#groupName,
+#Groupnumbers,
+#selectedNumbers {
+  margin-bottom: 16px;
+}
+
+#groupDropdown {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .header ul {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .header ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header li {
+    padding: 5px 8px;
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  textarea,
+  input[type="text"],
+  select {
+    font-size: 12px; /* Prevents zoom on mobile */
+  }
+}
+
+button {
+  color: #25d366;
+  padding: 6px 6px;
+  border: 2px solid #25d366;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  width: 30%;
+  margin-top: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}

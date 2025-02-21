@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <ul>
+        <li data-target="sendContainer">Send Messages</li>
+        <li data-target="pricingContainer">Pricing</li>
+        <li data-target="settingsContainer">Settings</li>
+        <li data-target="group-container">Group</li>
+        <li data-target="ProContainer">Pro</li>
+        <li data-target="chatContainer">Chats</li>
+      </ul>
+    </header>
+
+    <!-- Chat Container -->
+    <div id="chatContainer" class="container">
+      <div id="messageHistory"></div>
+    </div>
+
+    <!-- Send Messages Section -->
+    <div id="sendContainer" class="container">
+      <div>
+        <label for="numbers">Mobile Number(s)</label>
+        <textarea id="numbers" rows="3" placeholder="Enter numbers"></textarea>
+        <div id="numbersError" class="error">
+          Please enter valid mobile numbers
+        </div>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          rows="4"
+          placeholder="Enter your message"
+        ></textarea>
+        <div id="messageError" class="error">Please enter a message</div>
+      </div>
+      <div class="progress-container" id="progressContainer">
+        <div class="progress-bar">
+          <div class="progress" id="progressBar"></div>
+        </div>
+        <div class="status" id="status">
+          Sending messages: <span id="progressText">0%</span>
+        </div>
+        <div class="status" id="successCount">
+          Successfully sent: 0 messages
+        </div>
+        <div class="status" id="nextDelay"></div>
+      </div>
+      <div id="successCount"></div>
+
+      <button id="sendButton">Send Messages</button>
+    </div>
+
+    <!-- Pricing Section -->
+    <div id="pricingContainer" class="container" style="display: none">
+      <h2>Pricing Plans</h2>
+      <!-- Activation Section -->
+      <div class="activation-section">
+        <input
+          type="text"
+          id="activationKey"
+          placeholder="Enter Activation Key"
+        />
+        <button id="activateButton">Activate</button>
+      </div>
+      <div class="pricing-plans">
+        <div class="pricing-plan">
+          <div class="pricing-title">Basic Plan</div>
+          <div class="pricing-price">$12.99 / month</div>
+          <ul class="plan-features">
+            <li>1 WhatsApp Account</li>
+            <li>Unlimited Messages</li>
+            <li>Real-Time Sending Progress</li>
+            <li>Upload Excel</li>
+            <li>Send Attachments</li>
+          </ul>
+          <button class="select-plan-btn">Select Plan</button>
+        </div>
+        <div class="pricing-plan">
+          <div class="pricing-title">Pro Plan</div>
+          <div class="pricing-price">$18.99 / month</div>
+          <ul class="plan-features">
+            <li>3 WhatsApp Accounts</li>
+            <li>All Basic Features</li>
+            <li>Export Group Members</li>
+            <li>Send Personalized Messages</li>
+          </ul>
+          <button class="select-plan-btn">Select Plan</button>
+        </div>
+        <div class="pricing-plan">
+          <div class="pricing-title">Premium Plan</div>
+          <div class="pricing-price">$24.99 / month</div>
+          <ul class="plan-features">
+            <li>5 WhatsApp Accounts</li>
+            <li>All Pro Features</li>
+            <li>Number Replacement</li>
+            <li>Auto Remove Invalid Chats</li>
+          </ul>
+          <button class="select-plan-btn">Select Plan</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="ProContainer" class="container" style="display: none">
+      <div class="proHeader" id="pro">
+        <ul>
+          <li data-target="upload-image-container">Upload image</li>
+          <li data-target="upload-excel-container">Upload CSV</li>
+          <li data-target="history-container">History</li>
+        </ul>
+      </div>
+
+      <div
+        class="proContainer"
+        id="upload-image-container"
+        style="display: none"
+      >
+        <h2>Upload Image</h2>
+        <textarea
+          id="imageNumbers"
+          rows="3"
+          placeholder="Enter numbers (comma separated)"
+        ></textarea>
+        <input type="file" id="imageInput" accept="image/*" />
+        <label for="imageInput" class="custom-file-btn">Choose Image</label>
+        <div class="image-preview" id="imagePreviewContainer">
+          <img id="imagePreview" src="" alt="Image Preview" />
+        </div>
+        <button id="sendImageButton">Send Image</button>
+      </div>
+      <!-- Upload CSV Section -->
+      <div
+        class="proContainer"
+        id="upload-excel-container"
+        style="display: none"
+      >
+        <h2>Upload Excel</h2>
+        <input type="file" id="uploadExcel" accept=".xls,.xlsx" />
+        <label for="uploadExcel" class="custom-file-btn"
+          >Choose Excel File</label
+        >
+        <p>Only Excel files (.xls, .xlsx) are allowed.</p>
+        <button id="csvFile">Upload</button>
+      </div>
+
+      <!-- history -->
+      <div
+        class="history-container proContainer"
+        id="history-container"
+        style="display: none"
+      >
+        <div class="history-title">Recent Messages</div>
+        <div id="messageHistory"></div>
+      </div>
+    </div>
+
+    <!-- Settings Section -->
+    <div id="settingsContainer" class="container" style="display: none">
+      <h2>Privacy Settings</h2>
+
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="blurName" />
+          <span class="slider round"></span>
+        </label>
+        <label for="blurName">Blur Contact Names</label>
+      </div>
+
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="blurLastMessage" />
+          <span class="slider round"></span>
+        </label>
+        <label for="blurLastMessage">Blur Last Messages</label>
+      </div>
+
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="blurPhoto" />
+          <span class="slider round"></span>
+        </label>
+        <label for="blurPhoto">Blur Profile Photos</label>
+      </div>
+    </div>
+
+    <div id="group-container" class="container" style="display: none">
+      <!-- Group Name Input -->
+      <!-- header of group -->
+      <div class="groupHeader">
+        <ul>
+          <li data-target="createGroupContainer">create group</li>
+          <li data-target="viewCustomGroup">send message</li>
+        </ul>
+      </div>
+
+      <div
+        id="createGroupContainer"
+        class="groupContainer"
+        style="display: none"
+      >
+        <label for="groupName">Group Name:</label>
+        <input type="text" id="groupName" placeholder="Enter group name" />
+        <div id="numbersError" class="error">
+          Please enter valid mobile numbers
+        </div>
+        <!-- Numbers Input -->
+        <label for="Groupnumbers">Enter Numbers ,</label>
+        <textarea
+          id="Groupnumbers"
+          placeholder="9230339873239, 923405442321..."
+        ></textarea>
+        <div id="groupError" class="error">
+          Please enter valid mobile numbers
+        </div>
+        <!-- Button to Create Group -->
+        <button id="createGroup">Create Group</button>
+      </div>
+
+      <hr />
+
+      <div class="groupContainer" id="viewCustomGroup" style="display: none">
+        <!-- Dropdown to Select Group -->
+        <label for="groupDropdown">Select Group:</label>
+        <select id="groupDropdown">
+          <option value="">Select a group</option>
+        </select>
+
+        <div class="">
+          <!-- Numbers Input to Show Selected Group's Numbers -->
+          <label for="selectedNumbers">Selected Group Numbers:</label>
+          <textarea id="selectedNumbers"></textarea>
+          <div id="GroupNumberError" class="error">Please enter a message</div>
+        </div>
+        <div>
+          <label for="groupMessage">Message</label>
+          <textarea
+            id="groupMessage"
+            rows="4"
+            placeholder="Enter your group message"
+          ></textarea>
+          <div id="GroupMessageError" class="error">Please enter a message</div>
+        </div>
+
+        <button id="sendGroupMessage">Send Message</button>
+      </div>
+    </div>
+
+    <script src="xlsx.full.min.js"></script>
+    <script type="module" src="src/popup.js"></script>
+  </body>
+</html>

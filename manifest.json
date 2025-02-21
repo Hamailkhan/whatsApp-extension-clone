@@ -1,0 +1,67 @@
+{
+    "manifest_version": 3,
+    "name": "SMIT  Whatasapp",
+    "version": "3.0.3",
+    "description": "Seamlessly integrate WhatsApp messaging into web applications. Send messages from your web apps directly to WhatsApp Web.",
+    
+    "background": {
+        "service_worker": "src/background.js",
+        "type": "module"
+    },
+
+    "icons": {
+        "128": "icon-128.png"
+    },
+
+    "action": {
+        "default_popup": "popup.html"
+    },
+
+    "permissions": [
+        "tabs",
+        "scripting",
+        "activeTab",
+        "storage"
+    ],
+
+    "host_permissions": [
+        "https://web.whatsapp.com/*"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": ["https://web.whatsapp.com/*"],
+            "js": ["src/content.js"],
+            "run_at": "document_idle"
+        },
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["src/webapp.js"],
+            "world": "MAIN"
+        },
+        {
+            "matches": ["https://web.whatsapp.com/*"],
+            "js": ["src/moduleraid.js", "src/util/whatsapp.js"],
+            "css":["src/scripting.css"],
+            "world": "MAIN"
+        },
+        {
+            "matches": ["https://web.whatsapp.com/*"],
+            "js": ["src/whatsappContent.js"]
+        }
+    ],
+
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "src/moduleraid.js",
+                "src/util/whatsapp.js"
+            ],
+            "matches": ["https://web.whatsapp.com/*"]
+        }
+    ],
+
+    "externally_connectable": {
+        "matches": ["http://localhost/"]
+    }
+}
